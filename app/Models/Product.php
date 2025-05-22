@@ -61,4 +61,10 @@ class Product extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function wishedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'wishlists')->withTimestamps();
+    }
+
 }
