@@ -10,4 +10,9 @@ class Size extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = [
+        'product_id',
+        'size',
+    ];
 }

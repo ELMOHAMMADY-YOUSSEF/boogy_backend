@@ -12,34 +12,53 @@ use App\Models\Review;
 use App\Models\Color;
 use App\Models\Size;
 
-
 class Product extends Model
 {
     use HasFactory;
-    use SoftDeletes ;
+    use SoftDeletes;
 
-    public function images() {
+    protected $fillable = [
+        'name',
+        'slogo',
+        'brand',
+        'quantity',
+        'price',
+        'oldPrice',
+        'rating',
+        'reviewCount',
+        'sold',
+        'categorie',
+        'subCategorie',
+        'details'
+    ];
+
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
 
-    public function colors() {
+    public function colors()
+    {
         return $this->hasMany(Color::class);
     }
 
-    public function sizes() {
+    public function sizes()
+    {
         return $this->hasMany(Size::class);
     }
 
-    public function features() {
+    public function features()
+    {
         return $this->hasMany(Feature::class);
     }
 
-    public function specifications() {
+    public function specifications()
+    {
         return $this->hasMany(Specification::class);
     }
-    public function reviews() {
+
+    public function reviews()
+    {
         return $this->hasMany(Review::class);
     }
-
-    
 }

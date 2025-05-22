@@ -10,4 +10,10 @@ class Specification extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = [
+        'product_id',
+        'name',
+        'value',
+    ];
 }

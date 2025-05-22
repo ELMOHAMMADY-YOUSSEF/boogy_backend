@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('brand');
             $table->integer('quantity');
             $table->decimal('price', 8, 2);
-            $table->string('image');
             $table->decimal('oldPrice', 8, 2)->nullable();
             $table->float('rating');
             $table->integer('reviewCount');
