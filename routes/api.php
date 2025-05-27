@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarteController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -20,5 +21,11 @@ Route::apiResource('products', ProductController::class);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/wishlist', [WishlistController::class, 'index']);
     Route::post('/wishlist', action: [WishlistController::class, 'toggle']);
+
+    //carte 
+    Route::get('/cart', [CarteController::class, 'index']);
+    Route::post('/cart', [CarteController::class, 'store']);
+    Route::delete('/cart/{product_id}', [CarteController::class, 'destroy']);
+    Route::delete('/cart', [CarteController::class , 'clear' ]);
 });
 
